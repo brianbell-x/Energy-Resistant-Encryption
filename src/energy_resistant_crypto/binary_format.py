@@ -126,22 +126,6 @@ def read_header(f: BinaryIO) -> Tuple[FileHeader, bytes, bytes]:
 
 def secure_overwrite(path: str) -> None:
     """
-    Securely overwrite a file before deletion.
-    
-    Args:
-        path: Path to file to overwrite
+    Deprecated: function removed for reliability and simplicity.
     """
-    if not os.path.exists(path):
-        return
-    
-    # Get file size
-    size = os.path.getsize(path)
-    
-    # Overwrite with random data
-    with open(path, 'wb') as f:
-        f.write(os.urandom(size))
-        f.flush()
-        os.fsync(f.fileno())
-    
-    # Delete the file
-    os.unlink(path)
+    # No-op
